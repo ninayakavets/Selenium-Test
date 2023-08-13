@@ -72,7 +72,7 @@
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-testng</artifactId>
-            <version>5.3.0</version>
+            <version>5.0.11</version>
         </dependency>
 
     </dependencies>
@@ -84,10 +84,10 @@
                 <version>2.12.0</version>
             </plugin>
             <!--Report portal-->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
+                <version>2.15</version>
                 <configuration>
                     <properties>
                         <property>
@@ -100,7 +100,7 @@
                         </property>
                         <systemPropertyVariables>
                             <rp.endpoint>https://demo.reportportal.io</rp.endpoint>
-                            <rp.api.key>selenium_H6cTcHkzRau8VGBIWlb2KxmmBOX7jSmniJhRe4rKycT5RSk_QhMUU-xBKg8GYrXu</rp.api.key>
+                            <rp.api.key>ninay_4zWhtRHNSYKZfJvGxkG46jOkCth7grayZUezPvINqYGEUCJCQQyxsNBy6CkwnKDU</rp.api.key>
                             <rp.launch>Selenium course</rp.launch>
                             <rp.project>ninayakavets_personal</rp.project>
                         </systemPropertyVariables>
@@ -108,28 +108,29 @@
                 </configuration>
             </plugin>
 
-            -->
-            <!--allure-->
 
-         <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <testFailureIgnore>false</testFailureIgnore>
-                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
-                    <systemPropertyVariables>
-                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-                    </systemPropertyVariables>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+            <!--allure-->
+            <!--
+                     <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.1.2</version>
+                            <configuration>
+                                <testFailureIgnore>false</testFailureIgnore>
+                                <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+                                <systemPropertyVariables>
+                                    <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                                </systemPropertyVariables>
+                            </configuration>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>org.aspectj</groupId>
+                                    <artifactId>aspectjweaver</artifactId>
+                                    <version>${aspectj.version}</version>
+                                </dependency>
+                            </dependencies>
+                        </plugin>
+                        -->
         </plugins>
     </build>
 </project>

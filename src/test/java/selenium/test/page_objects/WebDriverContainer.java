@@ -25,6 +25,14 @@ public class WebDriverContainer {
 
     private static void initDriver() throws MalformedURLException {
         Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.CHROME.getBrowserName()));
+/*
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName(browser.getBrowserName());
+        caps.setPlatform(Platform.MAC);
+        driver = new RemoteWebDriver(new URL("http://192.168.0.231:4444/wd/hub"), caps);
+*/
+
+
 
         driver = switch (browser) {
             case CHROME -> new ChromeDriver();

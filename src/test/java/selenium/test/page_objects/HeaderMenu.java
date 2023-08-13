@@ -8,7 +8,7 @@ public class HeaderMenu {
 
     private static By rubberDucksMenuItem = By.cssSelector("#site-menu > ul > li.category-1 > a");
 
-    public static void goToRubberDucksPage(){
-       getDriver().findElement(rubberDucksMenuItem).click();
+    public static void goToRubberDucksPage() {
+        getDriver().findElement(rubberDucksMenuItem).click();
     }
 }
