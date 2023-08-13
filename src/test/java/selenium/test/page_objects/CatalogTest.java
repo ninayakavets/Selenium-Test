@@ -1,5 +1,8 @@
 package selenium.test.page_objects;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,6 +13,9 @@ public class CatalogTest extends TestBase {
 
 
     @Test
+    @Feature(value = "Catalog page")
+    @Story(value = "Catalog loading")
+    @Description(value = "Test checks correct loading of CatalogPage")
     public static void openCatalogPageTest() {
         HeaderMenu.goToRubberDucksPage();
         Assert.assertTrue(CatalogPage.hasLoaded());
@@ -17,6 +23,9 @@ public class CatalogTest extends TestBase {
     }
 
     @Test
+    @Feature(value = "Catalog page")
+    @Story(value = "Open items from catalog")
+    @Description(value = "Test checks correct opening of item Yellow Duck from catalog")
     public static void openYellowDuckFromCatalogTest() {
         HeaderMenu.goToRubberDucksPage();
         CatalogPage.openYellowDuck();
@@ -24,6 +33,9 @@ public class CatalogTest extends TestBase {
     }
 
     @Test
+    @Feature(value = "Catalog page")
+    @Story(value = "Buy items")
+    @Description(value = "Test checks adding yellow duck to the cart")
     public static void correctAddYellowDuckToCartTest() throws InterruptedException {
 
         CatalogPage.openYellowDuck();

@@ -1,8 +1,13 @@
 package selenium.test.page_objects;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ScreenshotListener.class)
 public class LoginTest extends TestBase {
     private static String correctEmail = "nina.yakovets@gmail.com";
     private static String correctPassword = "RubberDucks@123";
@@ -14,29 +19,40 @@ public class LoginTest extends TestBase {
 
 
     @Test
-    public static void openHomePageTest() {
+    @Feature(value = "Login page")
+    @Story(value = "Login")
+    @Description(value = "Test checks correct loading of homePage")
+    public static void openHomePageTest()throws InterruptedException  {
         Assert.assertTrue(LoginPage.hasLoaded());
 
     }
 
     @Test
-    public static void correctCreditsLoginTest() {
+    @Feature(value = "Login page")
+    @Story(value = "Login")
+    @Description(value = "Test checks login with correct credentials")
+    public static void correctCreditsLoginTest() throws InterruptedException {
         LoginPage.attemptLogin(correctEmail, correctPassword);
-        Assert.assertEquals(LoginPage.getErrorMessageText(), expectedCorrectLoginResultText);
+        Assert.assertEquals(expectedCorrectLoginResultText, LoginPage.getErrorMessageText());
     }
 
     @Test
+    @Feature(value = "Login page")
+    @Story(value = "Login errors")
+    @Description(value = "Test checks login with incorrect credentials")
     public static void incorrectCreditsLoginTest() {
         LoginPage.attemptLogin(incorrectEmail, incorrectPassword);
         Assert.assertEquals(LoginPage.getErrorMessageText(), expectedIncorrectLoginResultText);
     }
 
     @Test
+    @Feature(value = "Login page")
+    @Story(value = "Login errors")
+    @Description(value = "Test checks login with empty password filed")
     public static void emptyPasswordLoginTest() throws InterruptedException {
         LoginPage.attemptLogin(correctEmail, "");
         Assert.assertEquals(LoginPage.getErrorMessageText(), expectedEmptyPasswordLoginResultText);
     }
-
 
 
 }
