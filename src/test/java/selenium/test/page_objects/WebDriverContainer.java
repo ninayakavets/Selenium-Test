@@ -26,7 +26,7 @@ public class WebDriverContainer {
     }
 
     private static void initDriver() throws MalformedURLException {
-        Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.SAFARI.getBrowserName()));
+        Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.CHROME.getBrowserName()));
 
         String platform = System.getProperty("platform", "mac");
 
