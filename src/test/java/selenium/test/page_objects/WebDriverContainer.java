@@ -26,11 +26,19 @@ public class WebDriverContainer {
     }
 
     private static void initDriver() throws MalformedURLException {
-        Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.CHROME.getBrowserName()));
+        Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.SAFARI.getBrowserName()));
+
+        String platform = System.getProperty("platform", "mac");
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName(browser.getBrowserName());
-        caps.setPlatform(Platform.MAC);
+
+        switch (platform){
+            case "windows" ->caps.setPlatform(Platform.WINDOWS);
+            case "mac" -> caps.setPlatform(Platform.MAC);
+        }
+
+
 
         driver = new RemoteWebDriver(new URL("http://192.168.0.231:4444/wd/hub"), caps);
 
@@ -38,8 +46,8 @@ public class WebDriverContainer {
         driver = switch (browser) {
             case CHROME -> new ChromeDriver();
             case SAFARI -> new SafariDriver();
-        };
-*/
+        };*/
+
 
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
