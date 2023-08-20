@@ -1,10 +1,12 @@
 package selenium.test.page_objects;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 
@@ -25,20 +27,19 @@ public class WebDriverContainer {
 
     private static void initDriver() throws MalformedURLException {
         Browser browser = Browser.getEnumByLabel(System.getProperty("browser", Browser.CHROME.getBrowserName()));
-/*
+
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setBrowserName(browser.getBrowserName());
         caps.setPlatform(Platform.MAC);
+
         driver = new RemoteWebDriver(new URL("http://192.168.0.231:4444/wd/hub"), caps);
-*/
 
-
-
+/*
         driver = switch (browser) {
             case CHROME -> new ChromeDriver();
             case SAFARI -> new SafariDriver();
         };
-
+*/
 
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));

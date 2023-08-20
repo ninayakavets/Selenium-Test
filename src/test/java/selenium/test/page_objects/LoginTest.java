@@ -51,6 +51,7 @@ public class LoginTest extends TestBase {
     @Description(value = "Test checks login with empty password filed")
     public static void emptyPasswordLoginTest() throws InterruptedException {
         LoginPage.attemptLogin(correctEmail, "");
+        Thread.sleep(10000);
         Assert.assertEquals(LoginPage.getErrorMessageText(), expectedEmptyPasswordLoginResultText);
     }
 
