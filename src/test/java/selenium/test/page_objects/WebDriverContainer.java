@@ -42,13 +42,6 @@ public class WebDriverContainer {
 
         driver = new RemoteWebDriver(new URL("http://192.168.0.231:4444/wd/hub"), caps);
 
-/*
-        driver = switch (browser) {
-            case CHROME -> new ChromeDriver();
-            case SAFARI -> new SafariDriver();
-        };*/
-
-
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
