@@ -4,10 +4,9 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(ScreenshotListener.class)
+
 public class LoginTest extends TestBase {
     private static String correctEmail = "nina.yakovets@gmail.com";
     private static String correctPassword = "RubberDucks@123";
