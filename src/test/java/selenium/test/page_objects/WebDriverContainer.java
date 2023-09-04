@@ -38,7 +38,7 @@ public class WebDriverContainer {
             case "mac" -> caps.setPlatform(Platform.MAC);
         }
 
-        driver = new RemoteWebDriver(new URL("http://192.168.0.231:4444/wd/hub"), caps);
+        driver = new RemoteWebDriver(new URL("http://10.65.144.139:4444/wd/hub"), caps);
 
        // driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
